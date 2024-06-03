@@ -50,7 +50,7 @@ const isDev = process.env.NODE_ENV === 'development';
  * https://umijs.org/docs/max/request
  */
 export const request: RequestConfig = {
-  baseURL: isDev ? 'http://localhost:8102/api' : '你的线上接口地址',
+  baseURL: 'http://localhost:8888/api',
   timeout: 10000,
   withCredentials: true,
   // other axios options you want
@@ -82,7 +82,7 @@ export const request: RequestConfig = {
         // window.location.href = `/user/login?redirect=${window.location.href}`;
         throw new Error('请先登录');
       }
-      if (code !== 0) {
+      if (code !== '0000') {
         console.error(`request error, path = ${path}`, data);
         throw new Error(data.message ?? '服务器错误');
       }
